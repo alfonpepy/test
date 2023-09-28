@@ -14,8 +14,6 @@ services:
     working_dir: /var/www/simple
     volumes:
       - ./:/var/www/simple
-    networks:
-      - esnet
     depends_on:
       - db
       - redis
@@ -52,8 +50,6 @@ services:
       - elasticsearch_data:/usr/share/elasticsearch/data
     ports:
       - "${ELASTICSEARCH_PORT}:9200"
-    networks:
-      - esnet
     depends_on:
       - db
   rabbitmq:
@@ -72,8 +68,6 @@ services:
     volumes:
       - rabbitmq_data:/var/lib/rabbitmq
       - rabbitmq_logs:/var/log/rabbitmq
-    networks:
-      - esnet
 
 #Docker Volumes
 volumes:
